@@ -1,0 +1,14 @@
+def solution(n, lost, reserve):
+    answer = 0
+    t1 = set(lost)
+    t2 = set(reserve)
+    
+    new_lost = list(t1 - t2)
+    new_reserve = list(t2 - t1)
+    new_reserve_p = [x - 1 for x in new_reserve]
+    new_new_lost = list(set(new_lost) - set(new_reserve_p))
+    new_reserve_p = list(set(new_reserve_p) - set(new_lost))
+    new_reserve_m = [x + 2 for x in new_reserve_p]
+    new_new_lost = list(set(new_new_lost) - set(new_reserve_m))
+    answer = n - len(new_new_lost)
+    return answer
