@@ -1,0 +1,17 @@
+def solution(name, yearning, photo):
+    answer = []
+    thisdict = {}
+    new_answer1 = 0
+    count = 0
+    for i in range(len(name)):
+        thisdict.update({name[i]: yearning[i]})
+    for i in range(len(photo)):
+        new_answer = photo[i]
+        for j in range(len(new_answer)):
+            if new_answer[j] in thisdict:
+                new_answer1 += thisdict[new_answer[j]]
+            else:
+                continue
+        answer.append(new_answer1)
+        new_answer1 = 0
+    return answer
